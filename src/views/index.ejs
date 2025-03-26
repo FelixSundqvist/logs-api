@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items List</title>
+    <link rel="stylesheet" href="static/stylesheets/index.css">
+    <script src="static/scripts/index.js" defer></script>
+</head>
+<body>
+    <main>
+        <h1>List of Items</h1>
+        <% if (logs && logs.length > 0) { %>
+            <table border="1">
+                <thead>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Inserted at
+                    </th>
+                    <th>
+                        JSON
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <% logs.forEach(item => { %>
+                    <tr>
+                        <td>
+                            <%= item.id; %>
+                        </td>
+                        <td>
+                            <%= item.inserted_at; %>
+                        </td>
+                        <td>
+                            <%= item.json; %>
+                        </td>
+                    </tr>
+                <% }); %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>No logs found.</p>
+        <% } %>
+        <form>
+            <label for="json">JSON:</label>
+            <textarea name="json" id="json" required>{}</textarea>
+            <p id="errorText" class="hidden"></p>
+            <input type="submit" value="Submit">
+        </form>
+    </main>
+</body>
+</html>

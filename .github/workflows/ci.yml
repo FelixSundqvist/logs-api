@@ -1,0 +1,33 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: postgresql://admin:root@localhost:5432/db
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run docker compose detached
+        run: docker compose up -d
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Run migrations
+        run: yarn db:migrate
+
+      - name: Run Tests
+        run: yarn test
+
+      - name: Stop containers
+        if: always()
+        run: docker compose down

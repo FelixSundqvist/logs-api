@@ -1,0 +1,36 @@
+body {
+  font-family: sans-serif;
+  margin: 16px;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+#errorText {
+  color: red;
+  margin: 4px 0;
+}
+
+textarea[aria-invalid="true"] {
+  border: 1px solid red;
+}
+
+.hidden {
+  display: none;
+}

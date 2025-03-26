@@ -1,0 +1,45 @@
+{
+  "name": "logs-api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx --watch src",
+    "start:db": "sh ./scripts/start-db.sh",
+    "db:migrate": "npx prisma migrate deploy",
+    "build": "tsc",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "test": "node --import ts-node-maintained/register/esm --enable-source-maps bin/test.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.5.0",
+    "@types/morgan": "^1.9.9",
+    "cors": "^2.8.5",
+    "ejs": "3.1.10",
+    "express": "5.0.0",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.0",
+    "prisma": "^6.5.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "@japa/api-client": "^3.0.4",
+    "@japa/expect": "^3.0.3",
+    "@japa/expect-type": "^2.0.3",
+    "@japa/runner": "^4.2.0",
+    "@tsconfig/node22": "^22.0.1",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.13.13",
+    "eslint": "^9.23.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.5",
+    "globals": "^16.0.0",
+    "prettier": "3.5.3",
+    "ts-node-maintained": "^10.9.5",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.28.0"
+  }
+}
