@@ -26,9 +26,12 @@ jobs:
       - name: Run migrations
         run: yarn db:migrate
 
+      - name: Start server
+        run: yarn dev:ci &
+
       - name: Run Tests
         run: yarn test
 
-      - name: Stop containers
+      - name: Stop container and server
         if: always()
-        run: docker compose down
+        run: docker compose down && lsof -ti :3000 | xargs kill

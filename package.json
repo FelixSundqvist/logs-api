@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "tsx --watch src",
+    "dev:ci": "tsx src/index.ts",
     "db:migrate": "npx prisma migrate deploy",
     "build": "tsc",
     "lint": "eslint .",

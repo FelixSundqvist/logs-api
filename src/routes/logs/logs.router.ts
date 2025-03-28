@@ -20,19 +20,17 @@ logsRouter
 
       if (!errors.isEmpty()) {
         res.status(400).json({
-          message: "Invalid json format",
+          message: "Invalid JSON format",
         });
         return;
       }
 
       try {
-        await createLog(req.body.json);
-        res.json({
-          message: "ok",
-        });
+        const result = await createLog(req.body.json);
+        res.status(201).json(result);
       } catch {
         res.status(400).json({
-          message: "Invalid json format",
+          message: "Invalid JSON format",
         });
       }
     },
