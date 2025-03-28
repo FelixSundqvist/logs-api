@@ -16,6 +16,6 @@ export async function deleteLog(logId: string) {
   return prisma.log.delete({
     where: {
       id: logId,
-    }
-  })
+    },
+  });
 }

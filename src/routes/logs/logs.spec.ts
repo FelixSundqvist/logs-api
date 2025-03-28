@@ -7,13 +7,15 @@ test.group("Logs", () => {
     const logs = await getAllLogs();
     expectTypeOf(logs).toBeArray();
   });
-  test("createLog()", async ({ expectTypeOf, expect }) => {
-    const response = await createLog(JSON.stringify({
-      test: "foo"
-    }))
-    expectTypeOf(response).toEqualTypeOf<Log>()
+  test("createLog()", async ({ expectTypeOf }) => {
+    const response = await createLog(
+      JSON.stringify({
+        test: "foo",
+      }),
+    );
+    expectTypeOf(response).toEqualTypeOf<Log>();
 
     // clean up
-    deleteLog(response.id)
+    await deleteLog(response.id);
   });
 });
