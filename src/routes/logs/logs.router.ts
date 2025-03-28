@@ -6,7 +6,7 @@ import { createLog, getAllLogs } from "./logs.service.js";
 const logsRouter = Router();
 
 logsRouter
-  .get("/", async (req, res) => {
+  .get("/", async (_req, res) => {
     const logs = await getAllLogs();
     res.send(logs);
   })

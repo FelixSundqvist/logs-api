@@ -4,15 +4,13 @@ import helmet from "helmet";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { loggerMiddleware } from "./config/logger.js";
-export const __filename = fileURLToPath(import.meta.url);
-export const __dirname = path.dirname(__filename);
-
-const rootPath = path.dirname(__dirname);
+export const dirname = path.dirname(fileURLToPath(import.meta.url));
+export const rootPath = path.dirname(dirname);
 
 export const app = express();
 
 // View engine
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(dirname, "views"));
 app.set("view engine", "ejs");
 
 app.use(express.json());

@@ -26,5 +26,4 @@ formEl.addEventListener("submit", async (e) => {
     errorTextEl.classList.remove("hidden");
     errorTextEl.innerText = "Needs to be in a valid JSON format";
   }
-
 });
