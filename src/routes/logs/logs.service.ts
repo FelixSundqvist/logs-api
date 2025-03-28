@@ -1,7 +1,12 @@
+import { Prisma } from "@prisma/client";
 import { prisma } from "../../config/prisma.js";
 
 export async function getAllLogs() {
-  return prisma.log.findMany();
+  return prisma.log.findMany({
+    orderBy: {
+      inserted_at: Prisma.SortOrder.asc,
+    },
+  });
 }
 
 export async function createLog(json: string) {
