@@ -20,6 +20,11 @@ form {
   flex-direction: column;
   gap: 8px;
   margin: 16px 0;
+  width: 300px;
+}
+
+textarea {
+  height: 100px;
 }
 
 #errorText {
