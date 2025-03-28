@@ -1,5 +1,7 @@
 # Logs API
 
+[![CI](https://github.com/FelixSundqvist/logs-api/actions/workflows/ci.yml/badge.svg)](https://github.com/FelixSundqvist/logs-api/actions/workflows/ci.yml)
+
 A simple API that where you can list and create logs in a database.
 
 ## Setup
