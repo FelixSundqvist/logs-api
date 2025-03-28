@@ -9,15 +9,15 @@
   "scripts": {
     "dev": "tsx --watch src",
     "dev:ci": "tsx src/index.ts",
+    "start": "node dist/index.js",
     "db:migrate": "npx prisma migrate deploy",
-    "build": "tsc",
+    "build": "tsc -p tsconfig.app.json && cp -r src/views dist/",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "test": "node --import ts-node-maintained/register/esm --enable-source-maps bin/test.ts"
+    "test": "tsx ./bin/test.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.5.0",
-    "@types/morgan": "^1.9.9",
     "cors": "^2.8.5",
     "ejs": "^3.1.10",
     "express": "^5.0.0",
@@ -36,6 +36,7 @@
     "@tsconfig/node22": "^22.0.1",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
+    "@types/morgan": "^1.9.9",
     "@types/node": "^22.13.13",
     "@types/sanitize-html": "^2.13.0",
     "eslint": "^9.23.0",
@@ -43,7 +44,6 @@
     "eslint-plugin-prettier": "^5.2.5",
     "globals": "^16.0.0",
     "prettier": "3.5.3",
-    "ts-node-maintained": "^10.9.5",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.28.0"

@@ -1,0 +1,13 @@
+{
+  "extends": "@tsconfig/node22/tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+  },
+  "include": [
+    "**/*.spec.ts",
+    "bin/test.ts"
+  ],
+  "exclude": [
+    "dist",
+  ]
+}
