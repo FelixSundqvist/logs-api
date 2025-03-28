@@ -4,6 +4,7 @@ import helmet from "helmet";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { loggerMiddleware } from "./config/logger.js";
+
 export const dirname = path.dirname(fileURLToPath(import.meta.url));
 export const rootPath = path.dirname(dirname);
 
