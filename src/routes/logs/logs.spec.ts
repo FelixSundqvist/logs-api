@@ -1,18 +1,19 @@
 import { test } from "@japa/runner";
-import { getAllLogs } from "./logs.service.js";
+import { createLog, deleteLog, getAllLogs } from "./logs.service.js";
+import { Log } from "./logs.types.js";
 
-test.group("/api/logs", () => {
-  test("GET /api/logs", async ({client, expect}) => {
-    const response = await client.get("/api/logs");
-    expect(response.status()).toBe(200);
+test.group("Logs", () => {
+  test("getAllLogs()", async ({ expectTypeOf }) => {
+    const logs = await getAllLogs();
+    expectTypeOf(logs).toBeArray();
   });
-  test("POST /api/logs", async ({client, expect}) => {
-    const request = client.post("/api/logs").json({
-      json: {
-        foo: "bar",
-      },
-    });
-    const response = await request;
-    expect(response.status()).toBe(200);
+  test("createLog()", async ({ expectTypeOf, expect }) => {
+    const response = await createLog(JSON.stringify({
+      test: "foo"
+    }))
+    expectTypeOf(response).toEqualTypeOf<Log>()
+
+    // clean up
+    deleteLog(response.id)
   });
 });

@@ -11,3 +11,11 @@ export async function createLog(json: string) {
     },
   });
 }
+
+export async function deleteLog(logId: string) {
+  return prisma.log.delete({
+    where: {
+      id: logId,
+    }
+  })
+}
